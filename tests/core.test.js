@@ -177,6 +177,10 @@ describe('function', () => {
     expect(is.function(is.function)).toBeTruthy()
   })
 
+  it('is(() => {}).function()', () => {
+    expect(is(() => {}).function()).toBeTruthy()
+  })
+
   it('Anonym function == true', () => {
     expect(is.function( () => {} )).toBeTruthy()
   })
@@ -199,32 +203,40 @@ describe('arrayLike', () => {
 
 // contains
 describe('contains', () => {
-    var str = 'abcdefgh'
+  var str = 'abcdefgh'
 
-    it('str contains "abcd"', () => {
-      expect(is.contains(str, 'abcd')).toBeTruthy()
-    })
+  it('str contains "abcd"', () => {
+    expect(is.contains(str, 'abcd')).toBeTruthy()
+  })
 
-    it('str NOT contains "xxxx"', () => {
-      expect(is.contains(str, 'xxxx')).toBeFalsy()
-    })
+  it('str NOT contains "xxxx"', () => {
+    expect(is.contains(str, 'xxxx')).toBeFalsy()
+  })
 
-    it('str contains "efgh"', () => {
-      expect(is.contains(str, 'efgh')).toBeTruthy()
-    })
+  it('str contains "efgh"', () => {
+    expect(is.contains(str, 'efgh')).toBeTruthy()
+  })
 
-    it('str contains "efgh" when uses start at position 4', () => {
-      expect(is.contains(str, 'efgh', 4)).toBeTruthy()
-    })
+  it('advanced usage: is(str).contains("efgh")', () => {
+    expect(is(str).contains('efgh')).toBeTruthy()
+  })
 
-    it('str NOT contains "efgh" when uses start at position 6', () => {
-      expect(is.contains(str, 'efgh', 6)).toBeFalsy()
-    })
+  it('str contains "efgh" when uses start at position 4', () => {
+    expect(is.contains(str, 'efgh', 4)).toBeTruthy()
+  })
+
+  it('str NOT contains "efgh" when uses start at position 6', () => {
+    expect(is.contains(str, 'efgh', 6)).toBeFalsy()
+  })
 })
 
 describe('type', () => {
   it('"myString" == string', () => {
     expect(is.type("myString", 'string')).toBeTruthy()
+  })
+
+  it('advanced usage: is([]).a("array")', () => {
+    expect(is([]).a('array')).toBeTruthy()
   })
 
   it('1234 == number', () => {
