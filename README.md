@@ -2,11 +2,16 @@
 Simple and tiny (2k) IS helpers based on Angus Croll's article on "Fixing the JavaScript typeof operator".
 
 ## Build your own
-git clone git@github.com:ramoryan/is.git
-npm install --save-dev (recommended: yarn --dev)
-gulp build
+- git clone git@github.com:ramoryan/is.git
+- npm install --save-dev
+  * yarn --dev
+- gulp build
 
 After that you can find your new favourite, minyfied helper lib in the /dest folder.
+
+## Tests
+- gulp tests
+  * or you can run the tests in your browsers: /tests/is.html
 
 ### API
 - defined | def
